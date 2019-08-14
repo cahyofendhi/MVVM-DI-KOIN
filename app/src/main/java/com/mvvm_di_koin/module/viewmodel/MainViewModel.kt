@@ -30,12 +30,12 @@ class MainViewModel(val id: String) : ViewModel(), CoroutineScope, KoinComponent
 
     private fun getNews() {
         showLoading.value = true
-        newsRepository.getNewsList(id) { list, throwable ->
+        newsRepository.getNewsList(id) { list, error ->
             showLoading.value = false
             list?.let {
                 newsList.value = it
             }
-            throwable?.let {
+            error?.let {
                 showError.value = it
             }
         }
