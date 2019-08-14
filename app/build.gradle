@@ -49,7 +49,8 @@ dependencies {
     implementation "org.koin:koin-androidx-ext:2.0.1"
 
     // ViewModel and LiveData
-    implementation "android.arch.lifecycle:extensions:1.1.1"
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0-alpha03"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0-alpha03"
     annotationProcessor "android.arch.lifecycle:compiler:1.1.1"
     testImplementation "android.arch.core:core-testing:1.1.1"
 
