@@ -27,7 +27,7 @@ class MainViewModel(val id: String) : ViewModel(), CoroutineScope, KoinComponent
         Log.d("Result", "Parameter = $id")
     }
 
-    fun loadCats() {
+    fun getNews() {
         showLoading.value = true
         newsRepository.getNewsList(id) { list, throwable ->
             showLoading.value = false

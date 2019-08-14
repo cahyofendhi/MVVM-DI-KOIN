@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
         viewModel.showError.observe(this, Observer {
             Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
         })
-        viewModel.loadCats()
+        viewModel.getNews()
 
     }
 
