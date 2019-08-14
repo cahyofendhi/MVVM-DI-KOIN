@@ -1,2 +1,2 @@
 # MVVM-DI-KOIN
-Example create android application using mvvm with KOIN Dependency Injection
+Example create android application using mvvm architecture with KOIN Dependency Injection
