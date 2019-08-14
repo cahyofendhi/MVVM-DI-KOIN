@@ -12,7 +12,7 @@ import kotlin.properties.Delegates
 
 class NewsAdapter : RecyclerView.Adapter<NewsAdapter.CatViewHolder>() {
 
-    private var catsList: List<Article> by Delegates.observable(emptyList()) { _, _, _ ->
+    private var newsList: List<Article> by Delegates.observable(emptyList()) { _, _, _ ->
         notifyDataSetChanged()
     }
 
@@ -22,17 +22,17 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.CatViewHolder>() {
         return CatViewHolder(view)
     }
 
-    override fun getItemCount(): Int = catsList.size
+    override fun getItemCount(): Int = newsList.size
 
     override fun onBindViewHolder(holder: CatViewHolder, position: Int) {
         if (position != RecyclerView.NO_POSITION) {
-            val cat: Article = catsList[position]
+            val cat: Article = newsList[position]
             holder.bind(cat)
         }
     }
 
     fun updateData(newCatsList: List<Article>) {
-        catsList = newCatsList
+        newsList = newCatsList
     }
 
     class CatViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
