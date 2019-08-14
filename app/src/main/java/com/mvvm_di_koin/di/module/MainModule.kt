@@ -7,7 +7,7 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 
-val mainRepositoryModule = module {
+val mainModule = module {
 
 //    example when implementation interface
 //    factory<NewsRepositoryImpl> {

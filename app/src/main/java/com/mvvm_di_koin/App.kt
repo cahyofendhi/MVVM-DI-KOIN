@@ -2,7 +2,7 @@ package com.mvvm_di_koin
 
 import android.app.Application
 import com.mvvm_di_koin.di.module.appModules
-import com.mvvm_di_koin.di.module.mainRepositoryModule
+import com.mvvm_di_koin.di.module.mainModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -16,7 +16,7 @@ class App: Application() {
     private fun initKoin() {
         startKoin {
             androidContext(this@App)
-            modules(listOf(appModules, mainRepositoryModule))
+            modules(listOf(appModules, mainModule))
         }
     }
 
