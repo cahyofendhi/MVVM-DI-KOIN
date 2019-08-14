@@ -1,6 +1,6 @@
-package com.mvvm_di_koin.repository
+package com.mvvm_di_koin.module.repository
 
-import com.mvvm_di_koin.model.Article
+import com.mvvm_di_koin.module.model.Article
 import com.mvvm_di_koin.network.Service
 import com.mvvm_di_koin.network.Result
 import com.mvvm_di_koin.network.request

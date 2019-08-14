@@ -1,7 +1,7 @@
 package com.mvvm_di_koin.di.module
 
-import com.mvvm_di_koin.repository.NewsRepository
-import com.mvvm_di_koin.viewmodel.MainViewModel
+import com.mvvm_di_koin.module.repository.NewsRepository
+import com.mvvm_di_koin.module.viewmodel.MainViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 

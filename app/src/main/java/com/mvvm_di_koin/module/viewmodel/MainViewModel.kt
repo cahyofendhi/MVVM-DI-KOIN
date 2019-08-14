@@ -1,11 +1,11 @@
-package com.mvvm_di_koin.viewmodel
+package com.mvvm_di_koin.module.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.mvvm_di_koin.helper.SingleLiveEvent
-import com.mvvm_di_koin.model.Article
-import com.mvvm_di_koin.repository.NewsRepository
+import com.mvvm_di_koin.module.model.Article
+import com.mvvm_di_koin.module.repository.NewsRepository
 import kotlinx.coroutines.*
 import org.koin.core.KoinComponent
 import org.koin.core.inject
@@ -25,9 +25,10 @@ class MainViewModel(val id: String) : ViewModel(), CoroutineScope, KoinComponent
 
     init {
         Log.d("Result", "Parameter = $id")
+        getNews()
     }
 
-    fun getNews() {
+    private fun getNews() {
         showLoading.value = true
         newsRepository.getNewsList(id) { list, throwable ->
             showLoading.value = false

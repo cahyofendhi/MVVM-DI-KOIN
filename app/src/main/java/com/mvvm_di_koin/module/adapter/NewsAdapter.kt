@@ -1,4 +1,4 @@
-package com.mvvm_di_koin.adapter
+package com.mvvm_di_koin.module.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.mvvm_di_koin.R
-import com.mvvm_di_koin.model.Article
+import com.mvvm_di_koin.module.model.Article
 import kotlinx.android.synthetic.main.item_news.view.*
 import kotlin.properties.Delegates
 

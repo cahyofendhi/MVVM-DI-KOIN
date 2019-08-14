@@ -1,4 +1,4 @@
-package com.mvvm_di_koin.model
+package com.mvvm_di_koin.module.model
 import com.google.gson.annotations.SerializedName
 
 
