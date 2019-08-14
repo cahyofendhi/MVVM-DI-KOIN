@@ -9,8 +9,8 @@ import org.koin.dsl.module
 val mainRepositoryModule = module {
 
 //    example when implementation interface
-//    factory<CatRepositoryImpl> {
-//        CatRepository()
+//    factory<NewsRepositoryImpl> {
+//        NewsRepository()
 //    }
 
     factory {
