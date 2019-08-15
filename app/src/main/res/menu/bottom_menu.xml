@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/hotnewsDestination"
+          android:title="Top News"
+          android:icon="@drawable/icon_hot_news"/>
+    <item android:id="@+id/newsDestination"
+          android:title="News"
+          android:icon="@drawable/icon_news"/>
+    <item android:id="@+id/sourceDestination"
+          android:title="Source"
+          android:icon="@drawable/icon_topic"/>
+</menu>
