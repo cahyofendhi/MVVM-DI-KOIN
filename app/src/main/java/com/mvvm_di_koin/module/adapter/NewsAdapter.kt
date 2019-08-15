@@ -10,33 +10,34 @@ import com.mvvm_di_koin.module.model.Article
 import kotlinx.android.synthetic.main.item_news.view.*
 import kotlin.properties.Delegates
 
-class NewsAdapter : RecyclerView.Adapter<NewsAdapter.CatViewHolder>() {
+class NewsAdapter : RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
 
     private var newsList: List<Article> by Delegates.observable(emptyList()) { _, _, _ ->
         notifyDataSetChanged()
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CatViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val view = inflater.inflate(R.layout.item_news, parent, false)
-        return CatViewHolder(view)
+        return NewsViewHolder(view)
     }
 
     override fun getItemCount(): Int = newsList.size
 
-    override fun onBindViewHolder(holder: CatViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
         if (position != RecyclerView.NO_POSITION) {
             val cat: Article = newsList[position]
             holder.bind(cat)
         }
     }
 
-    fun updateData(newCatsList: List<Article>) {
-        newsList = newCatsList
+    fun updateData(newsList: List<Article>) {
+        this.newsList = newsList
     }
 
-    class CatViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class NewsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(news: Article) {
+            itemView.textNews.text = news.title
             Glide.with(itemView.context)
                 .load(news.urlToImage)
                 .centerCrop()
