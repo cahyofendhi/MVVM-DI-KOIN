@@ -5,9 +5,10 @@
             app:startDestination="@id/hotnewsDestination">
 
     <fragment android:id="@+id/hotnewsDestination" android:name="com.mvvm_di_koin.ui.HomeFragment"
-              android:label="home_fragment" tools:layout="@layout/home_fragment"/>
-    <fragment android:id="@+id/newsDestination" android:name="com.mvvm_di_koin.ui.NewsFragment" android:label="fragment_news"
+              android:label="Top Headlines" tools:layout="@layout/home_fragment"/>
+    <fragment android:id="@+id/newsDestination" android:name="com.mvvm_di_koin.ui.NewsFragment"
+              android:label="Everithing"
               tools:layout="@layout/fragment_news"/>
-    <fragment android:id="@+id/sourceDestination" android:name="com.mvvm_di_koin.sourceDestination"
-              android:label="fragment_source_destination" tools:layout="@layout/fragment_source_destination"/>
+    <fragment android:id="@+id/sourceDestination" android:name="com.mvvm_di_koin.ui.sourceDestination"
+              android:label="Source" tools:layout="@layout/fragment_source_destination"/>
 </navigation>

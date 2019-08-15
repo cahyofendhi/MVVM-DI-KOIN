@@ -1,10 +1,11 @@
-package com.mvvm_di_koin
+package com.mvvm_di_koin.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.mvvm_di_koin.R
 
 
 class sourceDestination : Fragment() {

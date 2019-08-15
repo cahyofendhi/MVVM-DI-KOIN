@@ -2,11 +2,12 @@ package com.mvvm_di_koin.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
-import androidx.navigation.ui.setupActionBarWithNavController
 import com.mvvm_di_koin.R
-import kotlinx.android.synthetic.main.home_activity.*
+import androidx.navigation.fragment.NavHostFragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
+
+
 
 class HomeActivity : AppCompatActivity() {
 
@@ -16,14 +17,15 @@ class HomeActivity : AppCompatActivity() {
         initNavigation()
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        return Navigation.findNavController(this, R.id.content ).navigateUp()
-    }
-
     private fun initNavigation() {
-        val navController = Navigation.findNavController(this, R.id.content)
-        setupActionBarWithNavController( navController)
-        NavigationUI.setupWithNavController(bottom_nav, navController)
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_nav)
+        val navHostFragment = supportFragmentManager
+            .findFragmentById(R.id.content) as NavHostFragment?
+        NavigationUI.setupWithNavController(
+            bottomNavigationView,
+            navHostFragment!!.navController
+        )
+
     }
 
 }

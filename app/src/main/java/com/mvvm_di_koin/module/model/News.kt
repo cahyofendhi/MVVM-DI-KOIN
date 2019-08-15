@@ -29,10 +29,3 @@ data class Article(
     @SerializedName("urlToImage")
     val urlToImage: String
 )
-
-data class Source(
-    @SerializedName("id")
-    val id: Any,
-    @SerializedName("name")
-    val name: String
-)
