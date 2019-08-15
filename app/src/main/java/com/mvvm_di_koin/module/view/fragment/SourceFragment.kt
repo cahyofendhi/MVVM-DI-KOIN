@@ -1,4 +1,4 @@
-package com.mvvm_di_koin.ui
+package com.mvvm_di_koin.module.view.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import com.mvvm_di_koin.R
 
 
-class sourceDestination : Fragment() {
+class SourceFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

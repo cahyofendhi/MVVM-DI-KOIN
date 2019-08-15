@@ -1,4 +1,4 @@
-package com.mvvm_di_koin.ui
+package com.mvvm_di_koin.module.view.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

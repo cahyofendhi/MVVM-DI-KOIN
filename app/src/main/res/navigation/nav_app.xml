@@ -4,11 +4,11 @@
             xmlns:tools="http://schemas.android.com/tools" android:id="@+id/nav_app"
             app:startDestination="@id/hotnewsDestination">
 
-    <fragment android:id="@+id/hotnewsDestination" android:name="com.mvvm_di_koin.ui.HomeFragment"
+    <fragment android:id="@+id/hotnewsDestination" android:name="com.mvvm_di_koin.module.view.fragment.HomeFragment"
               android:label="Top Headlines" tools:layout="@layout/home_fragment"/>
-    <fragment android:id="@+id/newsDestination" android:name="com.mvvm_di_koin.ui.NewsFragment"
+    <fragment android:id="@+id/newsDestination" android:name="com.mvvm_di_koin.module.view.fragment.NewsFragment"
               android:label="Everithing"
               tools:layout="@layout/fragment_news"/>
-    <fragment android:id="@+id/sourceDestination" android:name="com.mvvm_di_koin.ui.sourceDestination"
+    <fragment android:id="@+id/sourceDestination" android:name="com.mvvm_di_koin.module.view.fragment.SourceFragment"
               android:label="Source" tools:layout="@layout/fragment_source_destination"/>
 </navigation>

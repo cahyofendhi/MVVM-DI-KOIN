@@ -1,4 +1,4 @@
-package com.mvvm_di_koin.ui
+package com.mvvm_di_koin.module.view.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
