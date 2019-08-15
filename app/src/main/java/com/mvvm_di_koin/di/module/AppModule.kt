@@ -2,7 +2,6 @@ package com.mvvm_di_koin.di.module
 
 import android.annotation.SuppressLint
 import com.google.gson.GsonBuilder
-import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.mvvm_di_koin.data.BASE_URL
 import com.mvvm_di_koin.network.Service
 import okhttp3.OkHttpClient
@@ -85,8 +84,7 @@ inline fun <reified T> createWebService(
     val retrofit = Retrofit.Builder()
         .baseUrl(baseUrl)
         .addConverterFactory(GsonConverterFactory.create(GsonBuilder().setLenient().create()))
-        .addCallAdapterFactory(CoroutineCallAdapterFactory())
         .client(okHttpClient)
         .build()
-    return  retrofit.create(T::class.java)
+    return retrofit.create(T::class.java)
 }
