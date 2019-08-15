@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.mvvm_di_koin.R
 import com.mvvm_di_koin.module.adapter.NewsAdapter
 import com.mvvm_di_koin.module.viewmodel.HomeViewModel
@@ -36,16 +38,13 @@ class HomeFragment : Fragment() {
     private fun initAdapter() {
         newsAdapter = NewsAdapter()
         rvnews.apply {
-            layoutManager = GridLayoutManager(context, 3)
+            val linearVertical = LinearLayoutManager(context, RecyclerView.VERTICAL,false)
+            layoutManager = linearVertical
             adapter = newsAdapter
         }
     }
 
     private fun initViewModel() {
-//        id = "Category"
-//        viewModel = getViewModel { parametersOf(id) }
-
-
         viewmodel.newsList.observe(this, Observer {
             newsAdapter.updateData(it)
         })
