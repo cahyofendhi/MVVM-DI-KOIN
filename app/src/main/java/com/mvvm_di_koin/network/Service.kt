@@ -15,7 +15,7 @@ interface Service {
             : Response<News>
 
     @GET("everything")
-    suspend fun getEverything(@Query("q") country: String = "",
+    suspend fun getEverything(@Query("q") q: String = "",
                               @Query("apiKey") apiKey: String = API_KEY)
             : Response<News>
 
