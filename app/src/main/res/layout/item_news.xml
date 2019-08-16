@@ -1,36 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:layout_margin="3dp"
-        android:background="@android:color/white">
+        xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/imgNews"
+    <data>
+        <variable name="vm"
+                  type="com.mvvm_di_koin.module.viewmodel.ItemNewsViewModel"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:adjustViewBounds="true"
-            tools:srcCompat="@drawable/icon_hot_news"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"/>
-
-    <TextView
-            android:id="@+id/textNews"
-            android:text=""
-            android:textAlignment="textStart"
-            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/black"
-            android:textSize="14sp"
-            android:layout_marginTop="15dp"
-            tools:text="Russian jet crash-lands in field outside Moscow after striking flock of gulls - CNN"
-            app:layout_constraintTop_toBottomOf="@+id/imgNews"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"/>
+            android:padding="10dp"
+            android:layout_margin="3dp"
+            android:background="@android:color/white">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgNews"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:adjustViewBounds="true"
+                tools:srcCompat="@drawable/icon_hot_news"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+
+        <TextView
+                android:id="@+id/textNews"
+                android:text="@{vm.data.title}"
+                android:textAlignment="textStart"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                android:layout_marginTop="15dp"
+                tools:text="Russian jet crash-lands in field outside Moscow after striking flock of gulls - CNN"
+                app:layout_constraintTop_toBottomOf="@+id/imgNews"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

@@ -1,12 +1,11 @@
 package com.mvvm_di_koin.module.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.mvvm_di_koin.R
+import com.mvvm_di_koin.databinding.ItemSourceBinding
 import com.mvvm_di_koin.module.model.Source
-import kotlinx.android.synthetic.main.item_source.view.*
+import com.mvvm_di_koin.module.viewmodel.ItemSourceViewModel
 import kotlin.properties.Delegates
 
 class SourceAdapter : RecyclerView.Adapter<SourceAdapter.SourceViewHolder>() {
@@ -16,9 +15,10 @@ class SourceAdapter : RecyclerView.Adapter<SourceAdapter.SourceViewHolder>() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SourceViewHolder {
-        val inflater = LayoutInflater.from(parent.context)
-        val view = inflater.inflate(R.layout.item_source, parent, false)
-        return SourceViewHolder(view)
+        val layoutInflater = LayoutInflater.from(parent.context)
+        val itemBinding = ItemSourceBinding.inflate(layoutInflater, parent, false)
+
+        return SourceViewHolder(itemBinding)
     }
 
     override fun getItemCount(): Int = sourceList.size
@@ -34,10 +34,9 @@ class SourceAdapter : RecyclerView.Adapter<SourceAdapter.SourceViewHolder>() {
         this.sourceList = sourceList
     }
 
-    class SourceViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class SourceViewHolder(val binding: ItemSourceBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(source: Source) {
-            itemView.textTitle.text = source.name
-            itemView.textDescription.text = source.description
+            binding.vm = ItemSourceViewModel(source)
         }
     }
 }

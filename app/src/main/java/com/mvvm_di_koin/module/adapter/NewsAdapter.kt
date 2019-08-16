@@ -1,14 +1,14 @@
 package com.mvvm_di_koin.module.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.mvvm_di_koin.R
 import com.mvvm_di_koin.module.model.Article
-import kotlinx.android.synthetic.main.item_news.view.*
 import kotlin.properties.Delegates
+import com.mvvm_di_koin.databinding.ItemNewsBinding
+import com.mvvm_di_koin.module.viewmodel.ItemNewsViewModel
+
 
 class NewsAdapter : RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
 
@@ -17,9 +17,10 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsViewHolder {
-        val inflater = LayoutInflater.from(parent.context)
-        val view = inflater.inflate(R.layout.item_news, parent, false)
-        return NewsViewHolder(view)
+        val layoutInflater = LayoutInflater.from(parent.context)
+        val itemBinding = ItemNewsBinding.inflate(layoutInflater, parent, false)
+
+        return NewsViewHolder(itemBinding)
     }
 
     override fun getItemCount(): Int = newsList.size
@@ -35,14 +36,14 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
         this.newsList = newsList
     }
 
-    class NewsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class NewsViewHolder(val binding: ItemNewsBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(news: Article) {
-            itemView.textNews.text = news.title
-            Glide.with(itemView.context)
+            binding.vm = ItemNewsViewModel(news)
+            Glide.with(binding.root.context)
                 .load(news.urlToImage)
                 .centerCrop()
                 .thumbnail()
-                .into(itemView.imgNews)
+                .into(binding.imgNews)
         }
     }
 }
