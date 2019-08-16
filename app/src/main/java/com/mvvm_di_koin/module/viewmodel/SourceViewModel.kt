@@ -10,12 +10,12 @@ import org.koin.core.KoinComponent
 import org.koin.core.inject
 import org.koin.core.parameter.parametersOf
 
-class SourceViewModel() : ViewModel(), KoinComponent {
+class SourceViewModel : ViewModel(), KoinComponent {
 
     private val newsRepository by inject<NewsRepository> { parametersOf(viewModelScope) }
 
     val showLoading = MutableLiveData<Boolean>()
-    val newsList = MutableLiveData<List<Source>>()
+    val sourceList = MutableLiveData<List<Source>>()
     val showError = SingleLiveEvent<String>()
 
     init {
@@ -27,7 +27,7 @@ class SourceViewModel() : ViewModel(), KoinComponent {
         newsRepository.getSource { list, error ->
             showLoading.value = false
             list?.let {
-                newsList.value = it
+                sourceList.value = it
             }
             error?.let {
                 showError.value = it
