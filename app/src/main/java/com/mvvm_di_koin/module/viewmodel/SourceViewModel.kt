@@ -6,13 +6,16 @@ import androidx.lifecycle.viewModelScope
 import com.mvvm_di_koin.helper.SingleLiveEvent
 import com.mvvm_di_koin.module.model.Source
 import com.mvvm_di_koin.module.repository.NewsRepository
+import com.mvvm_di_koin.network.Result
+import com.mvvm_di_koin.network.handlingResponse
+import kotlinx.coroutines.launch
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 import org.koin.core.parameter.parametersOf
 
 class SourceViewModel : ViewModel(), KoinComponent {
 
-    private val newsRepository by inject<NewsRepository> { parametersOf(viewModelScope) }
+    private val newsRepository by inject<NewsRepository>()
 
     val showLoading = MutableLiveData<Boolean>()
     val sourceList = MutableLiveData<List<Source>>()
@@ -24,13 +27,18 @@ class SourceViewModel : ViewModel(), KoinComponent {
 
     private fun getSource() {
         showLoading.value = true
-        newsRepository.getSource { list, error ->
-            showLoading.value = false
-            list?.let {
-                sourceList.value = it
-            }
-            error?.let {
-                showError.value = it
+        viewModelScope.launch {
+            try {
+                val response = newsRepository.getSource()
+                showLoading.value = false
+                handlingResponse(response) {
+                    when(it) {
+                        is Result.Success -> sourceList.value = it.data.sources
+                        is Result.Failure -> showError.value = it.error
+                    }
+                }
+            } catch (e: Exception) {
+                showError.value = e.toString()
             }
         }
     }

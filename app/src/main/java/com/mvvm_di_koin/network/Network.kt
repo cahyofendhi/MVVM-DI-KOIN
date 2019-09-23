@@ -44,3 +44,18 @@ suspend fun <T> handlingResponse(response: suspend() -> Response<T>,
         results(Result.Failure(throwable.toString()))
     }
 }
+
+fun <T> handlingResponse(result: Response<T>, results:(Result<T>) -> Unit) {
+    try {
+        if (result.isSuccessful) {
+            result.body()?.let { body ->
+                results(Result.Success(body))
+            }
+        } else {
+            Log.d("Result", result.toString())
+            results(Result.Failure(result.toString()))
+        }
+    } catch (throwable: Throwable) {
+        results(Result.Failure(throwable.toString()))
+    }
+}
