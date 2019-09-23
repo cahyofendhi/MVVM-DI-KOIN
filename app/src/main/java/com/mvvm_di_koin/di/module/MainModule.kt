@@ -17,7 +17,7 @@ val mainModule = module {
 //    }
 
     factory {
-        (scope: CoroutineScope) -> NewsRepository(scope = scope)
+        NewsRepository()
     }
 
     viewModel {
